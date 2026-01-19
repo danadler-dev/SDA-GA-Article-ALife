@@ -273,7 +273,7 @@ Each generation included
 a replenishment of 5 base elements and 100 random pairwise
 interactions. 
 
-In the unconstrained simulations, all the resulting patterns had the same stability of 1 generation, so the dynamics reduce to random search: no patterns persist across generations, no memory accumulates, and no bias arises to skew the population distribution which remains uniform. 
+In the unconstrained simulations, all the resulting patterns had the same stability of 1 generation, so the dynamics reduced to random search: no patterns persist across generations, no memory accumulates, and no bias arises to skew the population distribution which remains uniform. 
 
 For the SDA simulations, 
 stability values were assigned to patterns according to the
@@ -304,7 +304,7 @@ This feedback of \textit{stability} $\rightarrow$ \textit{persistence} $\rightar
 \end{figure}
 
 Figure~\ref{fig:sda-loop} illustrates how these parameters operate within the
-symbolic SDA/GA loop. Replenishment and expiration define the active population, 
+symbolic SDA/GA loop. Relenishment and expiration define the active population, 
 stability values skew motif abundance, and roulette-wheel sampling drives
 biased parent selection. Interactions (concatenation or recombination) then
 produce new motifs that re-enter the pool, closing the feedback cycle. 
@@ -313,7 +313,7 @@ pressure without an explicit fitness function.
 
 \subsection{Simulation Results}
 
-We begin by comparing the final pattern distributions produced by the original SDA  with concatenation \cite{adler_sda} and the generalized SDA/GA with recombination. Both systems show a strong deviation from the unconstrained case: instead of a uniform spread of short strings, high-stability motifs dominate the population. In the SDA system, concatenation drives the emergence of long-repeated motifs such as \texttt{ABCABA}, which accumulate a lot of the probability mass. In the recombination-based GA variant, the same dominant motifs appear, but the distribution shows a heavier tail: many low-frequency variants persist alongside the stable core (Figures~\ref{fig:concat-patterns},~\ref{fig:ga-patterns}). This broader spectrum reflects the ability of recombination to continuously inject mosaic offspring and maintain a pool of rare types, while pure concatenation channels more strongly into layered repeats.
+We begin by comparing the final pattern distributions produced by the original SDA  with concatenation \cite{adler_sda} and the generalized SDA/GA with recombination. Both systems show a strong deviation from the unconstrained case: instead of a uniform spread of short strings, high-stability motifs dominate the population. In the SDA system, concatenation drives the emergence of long-repeated motifs such as \texttt{ABCABA}, which accumulate a lot of the probability mass. In the GA variant based on recombination, the same dominant motifs appear, but the distribution shows a heavier tail: many low-frequency variants persist along the stable core (Figures~\ref{fig:concat-patterns},~\ref{fig:ga-patterns}). This broader spectrum reflects the ability of recombination to continuously inject mosaic offspring and maintain a pool of rare types, while pure concatenation channels more strongly into layered repeats.
 
 \begin{figure}[H]
     \centering
@@ -340,7 +340,7 @@ a broader low-frequency tail maintained by recombination.}
 In terms of entropy dynamics, both systems show a clear reduction in Shannon entropy ($H(P_t) = - \sum_{p \in P} P_t(p) \log_2 P_t(p)$) of
 the pattern distribution in generation t measured in bits relative to the unconstrained baseline, confirming the emergence of order and the presence of selection pressure (Figures~\ref{fig:concat-entropy},~\ref{fig:ga-entropy}). Importantly, this occurs without any explicit fitness-proportional selection rule in the algorithm: roulette-wheel selection emerges intrinsically from persistence, since patterns with longer lifetimes are overrepresented and thus more likely to be sampled for further interactions.
 
-In the concatenation-based SDA, while the average entropy decreases from $\sim6$ bits to $\sim4$ bits, its trajectories often exhibit oscillations. These arise because concatenation tends to build large, synchronized cohorts of similar long motifs that expire at nearly the same time. When such a cohort collapses, replenished base elements briefly increase diversity and entropy before new dominant motifs emerge, creating a characteristic boom–bust cycle. In contrast, in the SDA/GA based on recombination, the entropy decreases more smoothly to $\sim3$ bits without oscillations. Recombination produces mosaic offspring with staggered lifetimes, desynchronizing expirations, and damping collective turnover. The result is a more monotonic entropy collapse toward a skewed distribution anchored by stable motifs.
+In concatenation-based SDA, while the average entropy decreases from $\sim6$ bits to $\sim4$ bits, its trajectories often exhibit oscillations. These arise because concatenation tends to build large, synchronized cohorts of similar long motifs that expire at nearly the same time. When such a cohort collapses, replenished base elements briefly increase diversity and entropy before new dominant motifs emerge, creating a characteristic boom–bust cycle. In contrast, in the SDA/GA based on recombination, the entropy decreases more smoothly to $\sim3$ bits without oscillations. Recombination produces mosaic offspring with staggered lifetimes, desynchronizing expirations, and damping collective turnover. The result is a more monotonic entropy collapse toward a skewed distribution anchored by stable motifs.
 
 \begin{figure}[H]
 \centering
@@ -387,7 +387,7 @@ continuous generation of low-frequency variants.}
 \label{fig:diversity-comparison}
 \end{figure}
 
-The pattern diversity results in Figures~\ref{fig:concat-diversity} and~\ref{fig:ga-diversity} illustrate the exploration–exploitation tradeoff. Concatenation-based SDA exhibits intermittent exploration, with diversity rising during replenishment and collapsing as dominant motifs take over, producing boom–bust dynamics. In contrast, recombination-based SDA/GA maintains broad exploration, with diversity approaching unconstrained levels even as entropy declines. Most variants remain low-frequency, but their persistence reflects continuous novelty injection. Thus, SDA/GA naturally combines exploitation of stable motifs with ongoing exploration of alternatives, a hallmark of genetic algorithms, without an explicit fitness function.
+The pattern diversity results in Figures~\ref{fig:concat-diversity} and~\ref{fig:ga-diversity} illustrate the exploration–exploitation tradeoff. Concatenation-based SDA exhibits intermittent exploration, with diversity rising during replenishment and collapsing as dominant motifs take over, producing boom–bust dynamics. In contrast, recombination-based SDA/GA maintains broad exploration, with diversity approaching unconstrained levels even as entropy declines. Most variants remain low-frequency, but their persistence reflects continuous novelty injection. Thus, SDA/GA naturally combines the exploitation of stable motifs with ongoing exploration of alternatives, a hallmark of genetic algorithms, without an explicit fitness function.
 
 We also tested the effect of introducing low-probability single-site mutations during recombination. 
 These mutations serve as a simple model of stochastic perturbations such as copying errors or
@@ -552,11 +552,11 @@ This schematic illustrates the SDA/GA cycle instantiated in the chemical space. 
 
 \subsection{Stability and Environmental Drivers}
 
-In SDA, stability $S(p)$ is defined as persistence between generations: the expected number of time steps that a pattern remains active in the population. This differs from conventional chemical usage, where stability refers to thermodynamic quantities or kinetic barriers. SDA instead abstracts these influences into a single phenomenological lifetime governing continued participation in the generative process. Accordingly, $S(p)$ is not an energy measure but a population-level timescale informed by thermodynamics, kinetics, and environment.
+In SDA, stability $S(p)$ is defined as persistence between generations: the expected number of time steps that a pattern remains active in the population. This differs from conventional chemical usage, where stability refers to thermodynamic quantities or kinetic barriers. Instead, SDA abstracts these influences into a single phenomenological lifetime that governs continued participation in the generative process. $S(p)$ is then not an energy measure, but a measure of persistence informed by thermodynamics, kinetics, and environment.
 
-Environmental drivers set these persistence times. Real chemical systems do not explore assembly space uniformly: reaction outcomes depend on temperature gradients, redox and pH cycles, porous flows, catalytic surfaces, and external energy inputs such as UV radiation or electrical discharges. These factors maintain systems far from equilibrium, making persistence differentials consequential. By contrast, laboratory chemistry is typically designed to reach equilibrium, after which dynamics cease. SDA focuses on the opposite regime: in open, driven systems, replenishment and fluctuation transform heterogeneous persistence into an evolutionary process.
+The environmental drivers set these persistence times. Real chemical systems do not explore the assembly space uniformly: reaction outcomes depend on temperature gradients, redox, and pH cycles, porous flows, catalytic surfaces, and external energy inputs such as UV radiation or electrical discharges. These factors maintain systems far from equilibrium, making persistence differentials consequential. By contrast, laboratory chemistry is typically designed to reach equilibrium, after which dynamics cease. SDA focuses on the opposite regime: in open, driven systems, replenishment and fluctuation transform heterogeneous persistence into an evolutionary process.
 
-Such conditions are documented in origin-of-life research. Hydrothermal vent systems provide sustained energy fluxes, catalytic mineral interfaces, and persistence gradients across thermal and redox boundaries \citep{martin2008energy}. Wet–dry cycling environments, including tidal flats and fluctuating hydrothermal pools, similarly couple replenishment, concentration, and selective persistence through repeated dehydration–rehydration cycles \citep{damer2015coupled, rajamani2008lipid}. These environments do not specify particular outcomes but generically realize the open, driven conditions under which persistence-driven selection operates. From this perspective, stability-as-persistence is not an alternative to chemical energetics but a population-level abstraction of their combined effects under environmental drive. Where stochastic assembly, replenishment, and differential persistence coexist, biased sampling and selection-like dynamics naturally emerge.
+Such conditions are documented in origin-of-life research. Hydrothermal vent systems provide sustained energy fluxes, catalytic mineral interfaces, and persistence gradients across thermal and redox boundaries \citep{martin2008energy}. Wet–dry cycling environments, including tidal flats and fluctuating hydrothermal pools. Similarly, couple-replenishment, concentration, and selective persistence through repeated dehydration–rehydration cycles \citep{damer2015coupled, rajamani2008lipid}. These environments do not specify particular outcomes, but generically realize the open, driven conditions under which persistence-driven selection operates. From this perspective, stability-as-persistence is not an alternative to chemical energetics but a population-level abstraction of their combined effects under environmental drive. Where stochastic assembly, replenishment, and differential persistence coexist, biased sampling and selection-like dynamics naturally emerge.
 
 
 \section{Chemical SDA/GA Simulation}
@@ -588,9 +588,9 @@ In this way, fitness was not externally imposed but emerged from environmental s
 
 We ran chemical SDA simulations for 1000 generations with 200 interactions per generation and a replenishment rate of five. The results reveal how stability-driven persistence produces skewed population structures, motif-level evolution, and system-wide dynamics that parallel both genetic algorithms (GAs) and ecological systems.  
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
-\includegraphics[width=13cm]{SDA-chem-hist.png}
+\includegraphics[width=16cm]{SDA-chem-hist.png}
 \caption{Histogram of the twelve most frequent compounds at generation 1000, expressed as counts and percentages. One compound accounts for $\sim$54\% of the population, with the next runner-up at $\sim$18\%.}
 \label{fig:chem-compound-hist}
 \end{figure}
@@ -675,7 +675,7 @@ In this sense, SDA/GA resembles a form of reinforcement learning without an exte
 
 \subsection{Emergence of a Natural Genetic Algorithm}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{SDA-top-down.png}
     \caption{Feedback structure underlying chemical SDA dynamics. Base elements interact randomly to form compounds. Compounds that persist contribute more to the population, biasing the probability distribution. This distribution in turn guides future interactions, closing a feedback loop. The result is emergent roulette-wheel selection.}
@@ -693,12 +693,11 @@ This perspective also clarifies the often misused notion of top-down causation \
 \begin{figure}[h]
 \centering
 \includegraphics[width=14cm]{SDA-ladder.png}
-\caption{\textbf{SDA Evolutionary Ladder.} A stepwise progression from persistence-only dynamics to Darwinian replication. 
-Rungs (bottom$\rightarrow$top): \emph{Persistence}—some motifs are longer-lived, biasing sampling; 
-\emph{Emergent Function}—incidental chemical properties begin to bias persistence and can become causal; 
-\emph{Catalysis}—functional motifs systematically lower barriers and direct assembly; 
-\emph{Autocatalysis}—motifs enhance their own production, forming self-reinforcing loops; 
-\emph{Replication}—sequence-specific copying makes information explicitly heritable. 
+\caption{\textbf{SDA Evolutionary Ladder.} A stepwise progression from persistence-only dynamics to Darwinian replication. \emph{Persistence}: some motifs are longer-lived, biasing sampling; 
+\emph{Emergent Function}: incidental chemical properties begin to bias persistence and can become causal; 
+\emph{Catalysis}: functional motifs systematically lower barriers and direct assembly; 
+\emph{Autocatalysis}: motifs enhance their own production, forming self-reinforcing loops; 
+\emph{Replication}: sequence-specific copying makes information explicitly heritable. 
 The boxes at right give concise examples for each rung (e.g., diamond vs.\ graphite; carbonyl acidity; acid/base catalysis; the formose cycle; RNA templating). 
 Colors encode increasing organizational complexity.}
 \label{fig:sda-ladder}
