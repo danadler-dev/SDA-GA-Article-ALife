@@ -39,11 +39,11 @@
 %   Twitter handle is optional 
 %   (for journal's promotional purposes).
 \auth{
-    Dan Adler
+    Dan Adler \\\texttt{dan@danadler.com}
 }
 
 % Specify the corresponding author by name and email
-\corresponding{}{dan@danadler.com}
+%\corresponding{}{dan@danadler.com}
 
 
 %%%%%%%%%%%%%%% ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -73,7 +73,7 @@ Information can evolve as a physical consequence of non-equilibrium dynamics, ev
 
 One of the deepest questions in the origins of life research is how selection could operate before the advent of replication. Multiple theoretical frameworks have addressed how complexity might emerge from abiotic systems. The autocatalytic set theory shows how reaction networks can become self-sustaining \cite{kauffman1986autocatalytic, hordijk2011required}. Eigen's hypercycles \cite{eigen1979hypercycle} extend this idea to mutually reinforcing replicators, but still presuppose replication machinery. Fontana's artificial chemistry \cite{fontana1991algorithmic} and later digital artificial life platforms such as \textit{Tierra} and \textit{Avida} \cite{ray1992tierra, adami1994avida} demonstrated open-ended dynamics in abstract symbolic systems. More recently, Cronin’s chemputation approach has automated chemical synthesis \cite{cronin2024chemputation}, showing how chemistry can be controlled as code, although only under the guidance of an external programmer. The GARD model of lipid assemblies \cite{segre2000compositional, markovitch2012universal} and protocell ABMs \cite{damer2015coupled} demonstrate how compositional inheritance can arise in specific chemistries. Each of these frameworks contributes valuable insight, yet they remain tied to particular substrates or assume replication.
 
-Other perspectives highlight general physical drivers: preferential attachment in networks \cite{barabasi1999emergence}, dissipative adaptation in nonequilibrium thermodynamics \cite{prigogine1977self, england2015dissipative}, and work on evolutionary dynamics in chemical networks \cite{wu2012origin, nowak2006evolutionary}. Assembly theory quantifies complexity as the minimum depth of construction \cite{walker2023nature}, while constructor theory reformulates physics in terms of possible transformations achievable by constructors \cite{deutsch2013constructor}. These approaches offer tools to measure or formalize complexity, though they stop short of explaining how information-generating dynamics arise in real time.
+Other perspectives emphasize general physical drivers of structure formation, including preferential attachment in networks \cite{barabasi1999emergence}, dissipative adaptation in nonequilibrium thermodynamics \cite{prigogine1977self, england2015dissipative}, and evolutionary dynamics in chemical reaction networks \cite{wu2012origin, nowak2006evolutionary}. Work on physical self-assembly has further shown that local interaction rules and constraints can generate modular structure and reusable subunits without explicit optimization or target states \cite{ahnert2022assembly}. Assembly theory formalizes this by quantifying complexity as the minimal depth of construction required to build a structure \cite{walker2023nature}, while constructor theory reframes physics in terms of which transformations are possible or impossible \cite{deutsch2013constructor}. Together, these frameworks provide powerful ways to characterize structure and complexity, but they largely remain descriptive: they do not explain how information-generating dynamics arise in real time through feedback between persistence, population statistics, and generative processes.
 
 The phrase 'chemical evolution' is widely used in the literature to describe the progressive transformation of molecules into more complex structures under prebiotic conditions. Yet the term is often applied descriptively rather than mechanistically, leaving open the question of what underlying principle imparts directionality or selection to such processes. In particular, while many models demonstrate how complexity can arise in specific chemistries, a general account of how chemical systems move from undirected reaction networks to cumulative evolutionary dynamics has remained elusive.
 
@@ -230,7 +230,7 @@ where $\Delta H_{\text{create}}$ is typically positive and $\Delta H_{\text{pers
 
 \subsection{Continuum Limit and Fokker-Planck Analogy}
 
-Unlike near-equilibrium dissipative adaptation frameworks, where structure arises through externally imposed driving fields that bias steady-state fluxes \cite{england2015dissipative}, SDA dynamics generate endogenous, population-dependent drift fields that evolve with the distribution itself. The continuum formulation is therefore introduced not as an analytic convenience, but to make explicit how persistence-weighted feedback produces nonlinear, self-consistent evolutionary dynamics that cannot be captured by equilibrium or near-equilibrium models. In the continuum limit, the SDA update can be written in a Fokker-Planck form \cite{gardiner2009}:
+Unlike near-equilibrium dissipative adaptation frameworks, where structure arises through externally imposed driving fields that bias steady-state fluxes \cite{england2015dissipative}, SDA dynamics generate endogenous, population-dependent drift fields that evolve with the distribution itself. The continuum formulation is therefore introduced not as an analytic convenience, but to make explicit how persistence-weighted feedback produces nonlinear, self-consistent evolutionary dynamics that cannot be captured by equilibrium models. In the continuum limit, the SDA update can be written in a Fokker-Planck form \cite{gardiner2009}:
 \begin{equation}
 \frac{\partial P(x,t)}{\partial t}
 = \underbrace{- \nabla \cdot \big[ A[P](x,t)\, P(x,t) \big]}_{\text{Persist / drift}}
@@ -762,12 +762,11 @@ This perspective links SDA to computation. Genetic programming showed that varia
 
 \subsection{Echoes in Biology}
 
-Patterns reminiscent of persistence-driven selection can be found at multiple levels of biology.  
-At the genomic scale, \textit{selfish elements} such as transposons may persist in lineages largely because they survive long enough to bias inheritance, while \textit{codon usage bias} has been associated with stability in translational dynamics \cite{hershberg2008codon}. 
-At the organismal scale, traits that extend lifespan can influence population outcomes beyond immediate reproduction, in ways captured by the covariance structure of Price’s equation \cite{price1970}.  
-At the ecological scale, long-lived keystone species stabilize communities and bias viable interactions \cite{mills1993keystone}.  
+Patterns reminiscent of persistence-driven selection can be found at multiple levels of biology. On the genomic scale, \textit{selfish elements} such as transposons may persist in lineages largely because they survive long enough to bias inheritance, while \textit{codon usage bias} has been associated with stability in translational dynamics \cite{hershberg2008codon}. 
+At the organismal scale, traits that extend lifespan can influence population outcomes beyond immediate reproduction, in ways captured by the covariance structure of Price’s equation \cite{price1970}. On 
+an ecological scale, long-lived keystone species stabilize communities and bias viable interactions \cite{mills1993keystone}.  
 
-These examples do not imply identical mechanisms, but they highlight recurring feedback cycles in which stability extends persistence, persistence biases sampling, and biased sampling influences outcomes.  
+These examples do not imply identical mechanisms, but highlight recurring feedback cycles in which stability extends persistence, persistence biases sampling, and biased sampling influences outcomes.  
 The parallels with our chemical simulations suggest that persistence-based dynamics may be a broadly relevant theme, potentially linking processes across chemistry, biology, and ecology.
 
 
@@ -775,7 +774,7 @@ The parallels with our chemical simulations suggest that persistence-based dynam
 
 Origins-of-life models are sometimes framed in terms of a hardware/software analogy, 
 with chemistry providing the hardware \cite{fontana1991algorithmic, cronin2024chemputation} and genetic sequences providing the software. This metaphor underlies the RNA world hypothesis \cite{gesteland2006rna}, where RNA is cast as both a catalyst and a code. 
-Yet the analogy leaves open how integrated systems such as the ribosome–genome complex could have emerged \cite{maynardsmith1999origins}. 
+However, the analogy leaves open how integrated systems such as the ribosome–genome complex could have emerged \cite{maynardsmith1999origins}. 
 
 SDA/GA reframes the issue by applying persistence to the system as a whole.  
 In this view, both the “hardware” (molecular structures with finite lifetimes) 
